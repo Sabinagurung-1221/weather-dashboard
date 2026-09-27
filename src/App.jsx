@@ -1,6 +1,14 @@
 import "./App.css";
 
 function App() {
+  const forecast = [
+    { day: "Monday", temp: "26°C", weather: "☀️ Sunny" },
+    { day: "Tuesday", temp: "24°C", weather: "🌤️ Partly Cloudy" },
+    { day: "Wednesday", temp: "23°C", weather: "🌧️ Rainy" },
+    { day: "Thursday", temp: "25°C", weather: "☀️ Sunny" },
+    { day: "Friday", temp: "22°C", weather: "🌦️ Light Rain" },
+  ];
+
   return (
     <div className="container">
       <h1>Weather Dashboard</h1>
@@ -10,10 +18,7 @@ function App() {
       </p>
 
       <div className="search-box">
-        <input
-          type="text"
-          placeholder="Enter city name"
-        />
+        <input type="text" placeholder="Enter city name" />
         <button>Search</button>
       </div>
 
@@ -30,6 +35,19 @@ function App() {
           <p>💧 Humidity: 60%</p>
           <p>💨 Wind Speed: 10 km/h</p>
         </div>
+      </div>
+
+      <h2 className="forecast-title">5-Day Forecast</h2>
+
+      <div className="forecast-container">
+        {forecast.map((item) => (
+          <div className="forecast-card" key={item.day}>
+            <h3>{item.day}</h3>
+            <div className="forecast-icon">{item.weather.split(" ")[0]}</div>
+            <p>{item.weather.substring(2)}</p>
+            <strong>{item.temp}</strong>
+          </div>
+        ))}
       </div>
     </div>
   );

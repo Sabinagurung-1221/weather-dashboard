@@ -79,3 +79,42 @@ h1 {
 .weather-details {
   margin-top: 20px;
 }
+.forecast-title {
+  margin-top: 40px;
+  color: #1e3a5f;
+}
+
+.forecast-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.forecast-card {
+  width: 130px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.forecast-card h3 {
+  color: #1e3a5f;
+  margin-top: 0;
+}
+
+.forecast-icon {
+  font-size: 35px;
+  margin: 10px 0;
+}
+
+.forecast-card p {
+  color: #555;
+}
+
+.forecast-card strong {
+  font-size: 20px;
+}
