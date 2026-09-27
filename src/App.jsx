@@ -1,10 +1,13 @@
 import { useState } from "react";
 import "./App.css";
 
-function App() {
+function App () {
  const [city, setCity] = useState("Kathmandu");
 const [searchCity, setSearchCity] = useState("");
 const [loading, setLoading] = useState(false);
+const [isCelsius, setIsCelsius] = useState(true);
+
+ const temperature = isCelsius ? "25°C" : "77°F";
 
   const forecast = [
     { day: "Monday", temp: "26°C", weather: "☀️ Sunny" },
@@ -61,17 +64,26 @@ const [loading, setLoading] = useState(false);
 
       <div className="weather-icon">☀️</div>
 
-      <h3>25°C</h3>
+      <h3>{temperature}</h3>
 
       <p>Sunny</p>
 
       <div className="weather-details">
         <p>💧 Humidity: 60%</p>
         <p>💨 Wind Speed: 10 km/h</p>
-      </div>
+      </div> 
+
+      <button
+  className="unit-button"
+  onClick={() => setIsCelsius(!isCelsius)}
+>
+  Switch to {isCelsius ? "°F" : "°C"}
+</button>
+
     </>
   )}
 </div>
+
 
       <h2 className="forecast-title">5-Day Forecast</h2>
 
