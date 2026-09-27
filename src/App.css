@@ -37,3 +37,45 @@ h1 {
   font-size: 18px;
   margin: 12px 0;
 }
+.search-box {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.search-box input {
+  padding: 12px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.search-box button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #1e3a5f;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-box button:hover {
+  opacity: 0.85;
+}
+
+.weather-icon {
+  font-size: 50px;
+  margin: 15px 0;
+}
+
+.weather-card h3 {
+  font-size: 40px;
+  margin: 10px 0;
+}
+
+.weather-details {
+  margin-top: 20px;
+}
