@@ -37,6 +37,13 @@ function App() {
         />
 
         <button onClick={handleSearch}>Search</button>
+
+<button
+  className="reset-button"
+  onClick={() => setCity("Kathmandu")}
+>
+  Reset
+</button>
       </div>
 
       <div className="weather-card">
