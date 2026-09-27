@@ -1,6 +1,10 @@
+import { useState } from "react";
 import "./App.css";
 
 function App() {
+  const [city, setCity] = useState("Kathmandu");
+  const [searchCity, setSearchCity] = useState("");
+
   const forecast = [
     { day: "Monday", temp: "26°C", weather: "☀️ Sunny" },
     { day: "Tuesday", temp: "24°C", weather: "🌤️ Partly Cloudy" },
@@ -8,6 +12,13 @@ function App() {
     { day: "Thursday", temp: "25°C", weather: "☀️ Sunny" },
     { day: "Friday", temp: "22°C", weather: "🌦️ Light Rain" },
   ];
+
+  const handleSearch = () => {
+    if (searchCity.trim() !== "") {
+      setCity(searchCity);
+      setSearchCity("");
+    }
+  };
 
   return (
     <div className="container">
@@ -18,12 +29,18 @@ function App() {
       </p>
 
       <div className="search-box">
-        <input type="text" placeholder="Enter city name" />
-        <button>Search</button>
+        <input
+          type="text"
+          placeholder="Enter city name"
+          value={searchCity}
+          onChange={(e) => setSearchCity(e.target.value)}
+        />
+
+        <button onClick={handleSearch}>Search</button>
       </div>
 
       <div className="weather-card">
-        <h2>Kathmandu</h2>
+        <h2>{city}</h2>
 
         <div className="weather-icon">☀️</div>
 
@@ -43,7 +60,9 @@ function App() {
         {forecast.map((item) => (
           <div className="forecast-card" key={item.day}>
             <h3>{item.day}</h3>
-            <div className="forecast-icon">{item.weather.split(" ")[0]}</div>
+            <div className="forecast-icon">
+              {item.weather.split(" ")[0]}
+            </div>
             <p>{item.weather.substring(2)}</p>
             <strong>{item.temp}</strong>
           </div>
