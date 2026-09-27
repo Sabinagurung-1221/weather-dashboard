@@ -2,8 +2,9 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [city, setCity] = useState("Kathmandu");
-  const [searchCity, setSearchCity] = useState("");
+ const [city, setCity] = useState("Kathmandu");
+const [searchCity, setSearchCity] = useState("");
+const [loading, setLoading] = useState(false);
 
   const forecast = [
     { day: "Monday", temp: "26°C", weather: "☀️ Sunny" },
@@ -14,11 +15,16 @@ function App() {
   ];
 
   const handleSearch = () => {
-    if (searchCity.trim() !== "") {
+  if (searchCity.trim() !== "") {
+    setLoading(true);
+
+    setTimeout(() => {
       setCity(searchCity);
       setSearchCity("");
-    }
-  };
+      setLoading(false);
+    }, 1000);
+  }
+};
 
   return (
     <div className="container">
@@ -47,19 +53,25 @@ function App() {
       </div>
 
       <div className="weather-card">
-        <h2>{city}</h2>
+  {loading ? (
+    <h2>Loading weather...</h2>
+  ) : (
+    <>
+      <h2>{city}</h2>
 
-        <div className="weather-icon">☀️</div>
+      <div className="weather-icon">☀️</div>
 
-        <h3>25°C</h3>
+      <h3>25°C</h3>
 
-        <p>Sunny</p>
+      <p>Sunny</p>
 
-        <div className="weather-details">
-          <p>💧 Humidity: 60%</p>
-          <p>💨 Wind Speed: 10 km/h</p>
-        </div>
+      <div className="weather-details">
+        <p>💧 Humidity: 60%</p>
+        <p>💨 Wind Speed: 10 km/h</p>
       </div>
+    </>
+  )}
+</div>
 
       <h2 className="forecast-title">5-Day Forecast</h2>
 
